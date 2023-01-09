@@ -10,37 +10,17 @@
     </div>
   </nav>
   <div class="container">
-    <Login v-if="currentPath === '/'" />
-    <Dashboard v-if="currentPath === '/dashboard' && hasToken" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Dashboard from "./components/Dashboard.vue";
 import LocaleSwitcher from "./components/LocaleSwitcher.vue";
-import Login from "./components/Login.vue";
-
-const routes = {
-  "/": Login,
-  "/dashboard": Dashboard,
-};
 
 export default {
   name: "App",
   components: {
     LocaleSwitcher,
-    Login,
-  },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || "/"] || Login;
-    },
-    currentPath() {
-      return window.location.pathname;
-    },
-    hasToken() {
-      return !!window.localStorage.getItem("Token");
-    },
   },
 };
 </script>
