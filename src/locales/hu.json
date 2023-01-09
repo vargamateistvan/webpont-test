@@ -1,3 +1,7 @@
 {
-  "language": "Nyelv"
+  "language": "Nyelv",
+  "email": "Email cím",
+  "password": "Jelszó",
+  "dashboard": "Irányítópult",
+  "logout": "Kijelentkezés"
 }

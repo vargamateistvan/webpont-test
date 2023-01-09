@@ -1,3 +1,7 @@
 {
-  "language": "Language"
+  "language": "Language",
+  "email": "Email address",
+  "password": "Password",
+  "dashboard": "Dashboard",
+  "logout": "Logout"
 }
