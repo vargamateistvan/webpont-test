@@ -32,6 +32,11 @@
 <script>
 export default {
   name: "Login-Component",
+  computed: {
+    hasToken() {
+      return !!window.localStorage.getItem("Token");
+    },
+  },
   methods: {
     submit() {
       const token = this.generateToken(12);
@@ -42,8 +47,11 @@ export default {
     storeToken(token) {
       window.localStorage.setItem("Token", token);
     },
+
     redirectToDashboard() {
-      window.location.pathname = "/dashboard";
+      if (this.hasToken) {
+        this.$router.push("/dashboard");
+      }
     },
     generateToken(length) {
       const characters =

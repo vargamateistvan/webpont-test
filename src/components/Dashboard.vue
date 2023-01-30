@@ -1,7 +1,8 @@
 <template>
   <div>
-    <p>{{ $t("dashboard") }}</p>
-    <button @click="remove">{{ $t("logout") }}</button>
+    <div class="logout">
+      <button @click="logout">{{ $t("logout") }}</button>
+    </div>
 
     <table class="table">
       <thead>
@@ -47,11 +48,17 @@ export default {
       window.localStorage.removeItem("Token");
     },
     redirectToLogin() {
-      window.location.pathname = "/";
+      this.$router.push("/login");
     },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+</style>
